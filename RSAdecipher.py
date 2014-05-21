@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import RSAbaseTransformer, RSAcore, string
 ASCmy64 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '[', ']', '\\']
-PW = int (raw_input ("Please enter the public key. "))
+PW = int (raw_input ("Please enter the private key. "))
 key = int (raw_input ("Please enter the general key. "))
 cip = raw_input ("Please enter the code. ")
 inf = ''

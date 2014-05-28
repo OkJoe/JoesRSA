@@ -5,40 +5,35 @@ PW = int (raw_input ("Please enter the private key. "))
 key = int (raw_input ("Please enter the general key. "))
 text = open ("text.txt", "r+")
 cip = text.read ()
+cipn = []
 inf = ''
+condition = ''
+if len (cip) % 4 != 0:
+	condition = 'ERROR'
 i = 0
 while i < len (cip):
-	a = cip [i]
-	b = cip [i + 1]
-	c = cip [i + 2]
-	d = cip [i + 3]
 	j = 0
 	while j < 64:
-		if ASCmy64[j] == a:
-			a = j
+		if ASCmy64 [j] == cip [i]:
+			cipn.append (j)
+			break
 		j = j + 1
-	j = 0
-	while j < 64:
-		if ASCmy64[j] == b:
-			b = j
-		j = j + 1
-	j = 0
-	while j < 64:
-		if ASCmy64[j] == c:
-			c = j
-		j = j + 1
-	j = 0
-	while j < 64:
-		if ASCmy64[j] == d:
-			d = j
-		j = j + 1
-	temp = a * 64 * 64 * 64 + b * 64 * 64 + c * 64 + d
-	temp = RSAcore.core (PW, key, temp)
-	j = 0
-	while j <= 2:
-		inf = inf + ASCmy64 [temp / (64 ** (2 - j))]
-		temp = temp % (64 ** (2 - j))
-		j = j + 1
-	i = i + 4
-text.write ("\n" + inf)
+	if j == 64:
+		condition = 'ERROR'
+	i = i + 1
+if condition != 'ERROR':
+	i = 0
+	while i < len (cip):
+		temp = cipn [i] * 64 * 64 * 64 + cipn [i + 1] * 64 * 64 + cipn [i + 2] * 64 + cipn [i + 3]
+		temp = RSAcore.core (PW, key, temp)
+		j = 0
+		while j <= 2:
+			inf = inf + ASCmy64 [temp / (64 ** (2 - j))]
+			temp = temp % (64 ** (2 - j))
+			j = j + 1
+		i = i + 4
+if condition != 'ERROR':
+	text.write ("\n" + inf)
+else:
+	text.write ("\n" + "ERROR: INVALID INPUT! ")
 text.close ()

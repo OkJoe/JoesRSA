@@ -3,8 +3,9 @@ import RSAbaseTransformer, RSAcore, string
 ASCmy64 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '[', ']', ' ']
 PW = int (raw_input ("Please enter the private key. "))
 key = int (raw_input ("Please enter the general key. "))
-text = open ("text.txt", "r+")
-cip = text.read ()
+textcip = open ("EncryptedMessage.txt", "r+")
+textinf = open ("PlainText.txt.txt", "r+")
+cip = textcip.read ()
 cipn = []
 inf = ''
 condition = ''
@@ -33,7 +34,8 @@ if condition != 'ERROR':
 			j = j + 1
 		i = i + 4
 if condition != 'ERROR':
-	text.write ("\n" + inf)
+	textinf.write ("\n" + inf)
 else:
-	text.write ("\n" + "ERROR: INVALID INPUT! ")
-text.close ()
+	textinf.write ("\n" + "ERROR: INVALID INPUT! ")
+textcip.close ()
+textinf.close ()

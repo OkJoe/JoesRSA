@@ -4,8 +4,9 @@ ASCmy64 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 print "MAKE SURE THE INFORMATION IS ALL IN CAPITALS! "
 PW = int (raw_input ("Please enter the public key. "))
 key = int (raw_input ("Please enter the general key. "))
-text = open ("text.txt", "r+")
-inf = text.read ()
+textcip = open ("EncryptedMessage.txt", "r+")
+textinf = open ("PlainText.txt.txt", "r+")
+inf = textinf.read ()
 infn = []
 cip = ''
 condition = ''
@@ -37,7 +38,8 @@ if condition != 'ERROR':
 			j = j + 1
 		i = i + 3
 if condition != 'ERROR':
-	text.write ("\n" + cip)
+	textcip.write ("\n" + cip)
 else:
-	text.write ("\n" + "ERROR: INVALID INPUT! ")
-text.close ()
+	textcip.write ("\n" + "ERROR: INVALID INPUT! ")
+textcip.close ()
+textinf.close ()

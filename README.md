@@ -1,1 +1,1 @@
-This program provides a plat form to generate password, encipher and decipher in RSA64 system. 
+This program provides a platform to generate password, encipher and decipher in RSA24 system in base 64. 
